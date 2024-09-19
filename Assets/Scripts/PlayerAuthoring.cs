@@ -8,7 +8,7 @@ public class PlayerAuthoring : MonoBehaviour
 {
     public float MoveSpeed;
 
-    public GameObject BulletPrefab;
+    public GameObject ProjectilePrefab;
 
     class PlayerAuthoringBaker : Baker<PlayerAuthoring>
     {
@@ -23,7 +23,7 @@ public class PlayerAuthoring : MonoBehaviour
             AddComponent<FireProjectileTag>(PlayerEntity);
             SetComponentEnabled<FireProjectileTag>(PlayerEntity, false);
 
-            AddComponent<PlayerBulletPrefab>(PlayerEntity, new PlayerBulletPrefab { Value = GetEntity(authoring.BulletPrefab,TransformUsageFlags.Dynamic) });
+            AddComponent<ProjectilePrefab>(PlayerEntity, new ProjectilePrefab { Value = GetEntity(authoring.ProjectilePrefab,TransformUsageFlags.Dynamic) });
         }
     }
 }
@@ -40,7 +40,7 @@ public struct PlayerTag : IComponentData
 {
 
 }
-public struct PlayerBulletPrefab : IComponentData
+public struct ProjectilePrefab : IComponentData
 {
     public Entity Value;
 }
